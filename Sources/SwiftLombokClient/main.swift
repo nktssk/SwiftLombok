@@ -4,7 +4,7 @@ import Foundation
 // MARK: - AutoCodingKeys
 
 @AutoCodingKeys(.snakeCase)
-struct User3: Codable {
+struct User: Codable {
     let name: String
     let password: String
     let age: Int
@@ -14,7 +14,7 @@ struct User3: Codable {
 }
 
 @AutoCodingKeys(.same)
-struct User: Codable {
+struct User2: Codable {
     let name: String
     let password: String
     let age_3: Int
@@ -24,13 +24,33 @@ struct User: Codable {
 }
 
 @AutoCodingKeys(.camelCase)
-struct User2: Codable {
+struct User3: Codable {
     let name_additional: String
     let password_plus: String
     let age_current: Int
     let passportNumber: Double
     let averageSalary: Float
     let id: UUID
+}
+
+// MARK: - Equtable
+
+@AutoEqutable()
+struct Animal {
+    let age: Int
+    @AutoEqutableIgnore
+    let name: String
+    let onSleepAction: () -> ()
+}
+
+// MARK: - Hashable
+
+@AutoHashable()
+struct Bump {
+    let age: Int
+    @AutoHashableIgnore
+    let name: String
+    let onSleepAction: () -> ()
 }
 
 // MARK: - Singleton
@@ -53,7 +73,7 @@ print(StorageService.shared.name)
 @CompletionTransform
 func loadUser(by userID: UUID) async -> User {
     try? await Task.sleep(nanoseconds: 1_000_000)
-    return User(name: "123", password: "123", age_3: 3, passportNumber: 3, averageSalary_4: 3, id: UUID())
+    return User(name: "123", password: "123", age: 3, passportNumber: 3, averageSalary: 3, id: UUID())
 }
 
 //Task {
@@ -76,7 +96,7 @@ class CustomCollectionCell {
 
 print(CustomCollectionCell.reuseIdentifier)
 
-// MARK: - Hashable
+// MARK: - Spec
 
 //enum Spec {
 //    static let test: CGFloat = 10
@@ -85,3 +105,4 @@ print(CustomCollectionCell.reuseIdentifier)
 enum Spec {
     #specConstant(name: "test", value: 10)
 }
+

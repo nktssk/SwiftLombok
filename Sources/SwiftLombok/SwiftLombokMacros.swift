@@ -14,3 +14,15 @@ public macro CompletionTransform() = #externalMacro(module: "SwiftLombokMacros",
 
 @freestanding(declaration, names: arbitrary)
 public macro specConstant(name: String, value: CGFloat) = #externalMacro(module: "SwiftLombokMacros", type: "SpecConstantMacro")
+
+@attached(extension)
+public macro AutoHashable() = #externalMacro(module: "SwiftLombokMacros", type: "AutoHashableMacro")
+
+@attached(accessor, names: named(willSet))
+public macro AutoHashableIgnore() = #externalMacro(module: "SwiftLombokMacros", type: "AutoHashableIgnoreMacro")
+
+@attached(extension)
+public macro AutoEqutable() = #externalMacro(module: "SwiftLombokMacros", type: "AutoEqutableMacro")
+
+@attached(accessor, names: named(willSet))
+public macro AutoEqutableIgnore() = #externalMacro(module: "SwiftLombokMacros", type: "AutoEqutableIgnoreMacro")
