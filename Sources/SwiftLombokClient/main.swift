@@ -32,3 +32,18 @@ struct User2: Codable {
     let averageSalary: Float
     let id: UUID
 }
+
+// MARK: - Singleton
+
+@Singleton
+class NetworkService {
+    let id = "123"
+}
+
+@Singleton
+struct StorageService {
+    let name = "CoreData"
+}
+
+print(NetworkService.shared.id)
+print(StorageService.shared.name)

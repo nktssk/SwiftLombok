@@ -7,5 +7,6 @@ import SwiftSyntaxMacros
 struct SwiftLombokPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         AutoCodingKeysMacro.self,
+        SingletonMacro.self
     ]
 }
