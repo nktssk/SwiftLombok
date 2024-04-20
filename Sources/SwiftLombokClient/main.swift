@@ -47,3 +47,41 @@ struct StorageService {
 
 print(NetworkService.shared.id)
 print(StorageService.shared.name)
+
+// MARK: - Async
+
+@CompletionTransform
+func loadUser(by userID: UUID) async -> User {
+    try? await Task.sleep(nanoseconds: 1_000_000)
+    return User(name: "123", password: "123", age_3: 3, passportNumber: 3, averageSalary_4: 3, id: UUID())
+}
+
+//Task {
+//    await loadUser(by: UUID())
+//}
+
+loadUser(
+    by: UUID(),
+    completionHandler: { user in
+        print(user)
+    }
+)
+
+// MARK: - ReuseIdentifier
+
+@ReuseIdentifier
+class CustomCollectionCell {
+    
+}
+
+print(CustomCollectionCell.reuseIdentifier)
+
+// MARK: - Hashable
+
+//enum Spec {
+//    static let test: CGFloat = 10
+//}
+
+enum Spec {
+    #specConstant(name: "test", value: 10)
+}
