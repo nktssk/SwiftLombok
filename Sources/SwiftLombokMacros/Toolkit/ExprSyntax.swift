@@ -7,8 +7,8 @@ extension DictionaryExprSyntax {
         }
 
         return elements.reduce(into: [String: String]()) { result, element in
-            guard let key = element.keyExpression.as(StringLiteralExprSyntax.self),
-                  let value = element.valueExpression.as(StringLiteralExprSyntax.self)
+            guard let key = element.key.as(StringLiteralExprSyntax.self),
+                  let value = element.value.as(StringLiteralExprSyntax.self)
             else {
                 return
             }
