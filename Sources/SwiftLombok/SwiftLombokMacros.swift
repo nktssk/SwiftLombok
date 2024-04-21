@@ -12,6 +12,9 @@ public macro ReuseIdentifier() = #externalMacro(module: "SwiftLombokMacros", typ
 @attached(peer, names: overloaded)
 public macro CompletionTransform(detachedPriority: TaskPriority? = nil) = #externalMacro(module: "SwiftLombokMacros", type: "CompletionTransformMacro")
 
+@attached(peer, names: suffixed(Builder))
+public macro Buildable() = #externalMacro(module: "SwiftLombokMacros", type: "BuildableMacroType")
+
 @freestanding(declaration, names: arbitrary)
 public macro spec(name: String, value: CGFloat) = #externalMacro(module: "SwiftLombokMacros", type: "SpecConstantMacro")
 

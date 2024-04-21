@@ -14,7 +14,9 @@ struct SwiftLombokPlugin: CompilerPlugin {
         
         SingletonMacro.self,
         CompletionTransformMacro.self,
-        
+
+        BuildableMacroType.self,
+
         ReuseIdentifierMacro.self,
         SpecConstantMacro.self,
         InitCoderMacro.self
