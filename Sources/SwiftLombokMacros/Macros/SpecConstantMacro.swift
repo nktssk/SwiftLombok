@@ -13,8 +13,7 @@ public struct SpecConstantMacro: DeclarationMacro {
         let firstIndex = node.argumentList.startIndex
         let secondIndex = node.argumentList.index(after: firstIndex)
         
-        var rawName = node.argumentList[firstIndex].expression.as(StringLiteralExprSyntax.self)!.rawValue
-        
+        let rawName = node.argumentList[firstIndex].expression.as(StringLiteralExprSyntax.self)!.rawValue
         let value = node.argumentList[secondIndex].expression
 
         return [
