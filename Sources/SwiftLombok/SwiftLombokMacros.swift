@@ -10,10 +10,10 @@ public macro Singleton() = #externalMacro(module: "SwiftLombokMacros", type: "Si
 public macro ReuseIdentifier() = #externalMacro(module: "SwiftLombokMacros", type: "ReuseIdentifierMacro")
 
 @attached(peer, names: overloaded)
-public macro CompletionTransform() = #externalMacro(module: "SwiftLombokMacros", type: "CompletionTransformMacro")
+public macro CompletionTransform(detachedPriority: TaskPriority? = nil) = #externalMacro(module: "SwiftLombokMacros", type: "CompletionTransformMacro")
 
 @freestanding(declaration, names: arbitrary)
-public macro specConstant(name: String, value: CGFloat) = #externalMacro(module: "SwiftLombokMacros", type: "SpecConstantMacro")
+public macro spec(name: String, value: CGFloat) = #externalMacro(module: "SwiftLombokMacros", type: "SpecConstantMacro")
 
 @attached(extension)
 public macro AutoHashable() = #externalMacro(module: "SwiftLombokMacros", type: "AutoHashableMacro")
@@ -26,3 +26,7 @@ public macro AutoEqutable() = #externalMacro(module: "SwiftLombokMacros", type: 
 
 @attached(accessor, names: named(willSet))
 public macro AutoEqutableIgnore() = #externalMacro(module: "SwiftLombokMacros", type: "AutoEqutableIgnoreMacro")
+
+@attached(member, names: named(init), named(shared))
+public macro InitCoder() = #externalMacro(module: "SwiftLombokMacros", type: "InitCoderMacro")
+

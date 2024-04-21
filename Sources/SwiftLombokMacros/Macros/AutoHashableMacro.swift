@@ -15,9 +15,9 @@ public struct AutoHashableMacro: ExtensionMacro {
         in context: some SwiftSyntaxMacros.MacroExpansionContext
     ) throws -> [SwiftSyntax.ExtensionDeclSyntax] {
         guard [SwiftSyntax.SyntaxKind.classDecl, SwiftSyntax.SyntaxKind.structDecl].contains(declaration.kind) else {
-            throw AutoEqutableMacroError.notSupportedType
+            throw AutoHashbleMacroError.notSupportedType
         }
-        let equatableProtocol = InheritanceClauseSyntax(inheritedTypes: InheritedTypeListSyntax(
+        let hashableProtocol = InheritanceClauseSyntax(inheritedTypes: InheritedTypeListSyntax(
             arrayLiteral: InheritedTypeSyntax(type: TypeSyntax(stringLiteral: "Hashable")))
         )
         
@@ -51,7 +51,7 @@ public struct AutoHashableMacro: ExtensionMacro {
         return [
             ExtensionDeclSyntax(
                 extendedType: type,
-                inheritanceClause: equatableProtocol,
+                inheritanceClause: hashableProtocol,
                 memberBlock: MemberBlockSyntax(
                     members: MemberBlockItemListSyntax(stringLiteral: function)
                 )

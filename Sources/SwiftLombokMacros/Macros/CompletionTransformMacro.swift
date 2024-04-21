@@ -28,6 +28,13 @@ public struct CompletionTransformMacro: PeerMacro {
             type: "@escaping (\(resultType ?? "")) -> Void" as TypeSyntax
         )
         
+        let dataTaskPriorityExpression: ExprSyntax?
+        if case let .argumentList(list) = node.arguments, let first = list.first {
+            dataTaskPriorityExpression = first.expression
+        } else {
+            dataTaskPriorityExpression = nil
+        }
+        
         let parameterList = funcDecl.signature.parameterClause.parameters
         let newParameterList: FunctionParameterListSyntax
         
@@ -50,7 +57,10 @@ public struct CompletionTransformMacro: PeerMacro {
         }
         
         let call: ExprSyntax = "\(funcDecl.name)(\(raw: callArguments.joined(separator: ", ")))"
-        let newBody: ExprSyntax = "Task { completionHandler(await \(call)) }"
+        
+        let newBody: ExprSyntax = dataTaskPriorityExpression == nil
+            ? "Task { completionHandler(await \(call)) }"
+            : "Task.detached(priority: \(dataTaskPriorityExpression!)) { completionHandler(await \(call)) }"
         
         let newAttributeList = funcDecl.attributes.filter {
             guard case let .attribute(attribute) = $0,
