@@ -23,3 +23,5 @@ public extension String {
         return camelCaseString
     }
 }
+
+extension String: Error {}
