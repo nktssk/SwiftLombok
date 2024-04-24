@@ -28,12 +28,5 @@ let package = Package(
         ),
         .target(name: "SwiftLombok", dependencies: ["SwiftLombokMacros"]),
         .executableTarget(name: "SwiftLombokClient", dependencies: ["SwiftLombok"]),
-        .testTarget(
-            name: "SwiftLombokTests",
-            dependencies: [
-                "SwiftLombokMacros",
-                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
-            ]
-        ),
     ]
 )

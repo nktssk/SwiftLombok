@@ -10,18 +10,3 @@ enum OldSpec {
 enum Spec {
     #spec(name: "test", value: 10)
 }
-
-
-#if canImport(UIKit)
-
-import UIKit
-
-@InitCoder
-final class View: UIView {
-    
-    init() {
-        super.init(frame: .zero)
-    }
-}
-
-#endif

@@ -10,33 +10,40 @@ This is a Swift library dedicated to macros, a new language feature in Swift. Ma
 
 ### Macro
 
-### Macro
-
 1. **AutoEqutable**
+
    Automatically generates the `Equatable` protocol conformance for a Swift struct or class.
 
 2. **AutoHashable**
+
    Automatically generates the `Hashable` protocol conformance for a Swift struct or class.
 
 3. **ReuseIdentifier**
+
    Generates a static property `reuseIdentifier` for a Swift class or struct, commonly used in iOS for dequeueing reusable views.
 
 4. **Singleton**
+
    Creates a singleton instance of a Swift class.
 
 5. **InitCoder**
+
    Automatically generates the `init?(coder:)` initializer required for NSCoding conformance in Swift classes.
 
 6. **Buildable**
+
    Facilitates the building of complex objects in Swift by providing a fluent interface for configuring properties.
    
 7. **BuildableTracked**
+
    Generates setter functions for each marked property, allowing fluent chaining of modifications.
 
 8. **AutoCodingKeys**
+
    Automatically generates `CodingKeys` enumeration for Swift structs or classes when using Codable protocol. You can choose - camel or snake case.
 
 9. **#spec**
+
    Create CGFloat static let constant.
 
 
