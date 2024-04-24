@@ -32,3 +32,40 @@ struct MyStruct {
     let m1: String
     let fix: String = ""
 }
+
+@Buildable
+struct Person {
+    let name: String
+    let age: Int
+    let hobby: String?
+    let favouriteSeason: Season
+
+    @BuildableTracked
+    var likesReading: Bool
+
+    static let minimumAge = 21
+}
+
+@Buildable
+enum Season {
+    case winter
+    case spring
+    case summer
+    case autumn
+}
+
+@Buildable
+class AppState {
+    let persons: [Person]
+
+    init(
+        persons: [Person]
+    ) {
+        self.persons = persons
+    }
+}
+
+var anyPerson = PersonBuilder().build()
+let isReading = anyPerson.likesReading(true)
+let max = PersonBuilder(name: "Max", favouriteSeason: .summer).build()
+let appState = AppStateBuilder(persons: [max]).build()

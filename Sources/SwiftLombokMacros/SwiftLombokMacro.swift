@@ -16,6 +16,7 @@ struct SwiftLombokPlugin: CompilerPlugin {
         CompletionTransformMacro.self,
 
         BuildableMacroType.self,
+        BuildableTrackedMacro.self,
 
         ReuseIdentifierMacro.self,
         SpecConstantMacro.self,

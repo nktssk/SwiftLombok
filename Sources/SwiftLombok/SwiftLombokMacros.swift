@@ -15,6 +15,9 @@ public macro CompletionTransform(detachedPriority: TaskPriority? = nil) = #exter
 @attached(peer, names: suffixed(Builder))
 public macro Buildable() = #externalMacro(module: "SwiftLombokMacros", type: "BuildableMacroType")
 
+@attached(peer, names: arbitrary)
+public macro BuildableTracked(name: StaticString? = nil, forceEscaping: Bool = false) = #externalMacro(module: "SwiftLombokMacros", type: "BuildableTrackedMacro")
+
 @freestanding(declaration, names: arbitrary)
 public macro spec(name: String, value: CGFloat) = #externalMacro(module: "SwiftLombokMacros", type: "SpecConstantMacro")
 
