@@ -29,11 +29,14 @@ This is a Swift library dedicated to macros, a new language feature in Swift. Ma
 
 6. **Buildable**
    Facilitates the building of complex objects in Swift by providing a fluent interface for configuring properties.
+   
+7. **BuildableTracked**
+   Generates setter functions for each marked property, allowing fluent chaining of modifications.
 
-7. **AutoCodingKeys**
+8. **AutoCodingKeys**
    Automatically generates `CodingKeys` enumeration for Swift structs or classes when using Codable protocol. You can choose - camel or snake case.
 
-8. **#spec**
+9. **#spec**
    Create CGFloat static let constant.
 
 
