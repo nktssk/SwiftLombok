@@ -1,3 +1,13 @@
+import SwiftLombok
+
+@Mock class MyTestingClass {
+    var priority: Int { mock.priority.getter.record() }
+    func doSomething() { mock.doSomething() }
+    func perform(with param: Int) -> String {
+        mock.perform(with: param)
+    }
+}
+
 func testingMock() {
     let myClass = MyTestingClass()
     myClass.mock.priority.getter.mockCall { 1 }
