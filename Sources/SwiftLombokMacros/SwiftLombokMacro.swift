@@ -22,6 +22,7 @@ struct SwiftLombokPlugin: CompilerPlugin {
         SpecConstantMacro.self,
         InitCoderMacro.self,
 
-        MockMacro.self
+        MockMacro.self,
+        LocalizableMacro.self
     ]
 }
