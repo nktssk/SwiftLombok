@@ -36,3 +36,5 @@ public macro AutoEqutableIgnore() = #externalMacro(module: "SwiftLombokMacros", 
 @attached(member, names: named(init), named(shared))
 public macro InitCoder() = #externalMacro(module: "SwiftLombokMacros", type: "InitCoderMacro")
 
+@attached(member, names: arbitrary)
+public macro Localizable() = #externalMacro(module: "SwiftLombokMacros", type: "LocalizableMacro")
